@@ -7,9 +7,11 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const DATA_FILE = path.join(__dirname, 'annotations.json');
 
+
 // Middleware
+const allowedOrigin = process.env.CORS_ORIGIN || true; 
 app.use(cors({
-  origin: true,
+  origin: allowedOrigin,
   credentials: true
 }));
 app.use(express.json());
@@ -282,7 +284,7 @@ async function startServer() {
     await initializeDataFile();
     app.listen(PORT, () => {
       console.log(`Annotation API server running on port ${PORT}`);
-      console.log(`Health check: http://localhost:${PORT}/api/health`);
+      // console.log(`Health check: http://localhost:${PORT}/api/health`);
     });
   } catch (error) {
     console.error('Failed to start server:', error);
