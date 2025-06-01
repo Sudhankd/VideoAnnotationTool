@@ -109,7 +109,7 @@ export default function VideoPlayer({ dispatch, state }) {
 
       <video
         ref={videoRef}
-        src="/video.mkv"
+        src="/video.mp4"
         controls={false}
         className="video-player"
         onClick={() => {
