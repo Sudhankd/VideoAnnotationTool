@@ -8,7 +8,10 @@ const PORT = process.env.PORT || 3001;
 const DATA_FILE = path.join(__dirname, 'annotations.json');
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
 app.use(express.json());
 
 // Initialize data file if it doesn't exist
